@@ -1,0 +1,70 @@
+DROP SCHEMA IF EXISTS `book_shop_management`;
+
+CREATE SCHEMA `book_shop_management`;
+
+use `book_shop_management`;
+
+
+DROP TABLE IF EXISTS `user`;
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(45) DEFAULT NULL,
+  `last_name` varchar(45) DEFAULT NULL,
+  `role` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `password` char(68) NOT NULL,
+  PRIMARY KEY (`id`)
+  
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `book`;
+
+CREATE TABLE `book` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `book_name` varchar(45) DEFAULT NULL,
+  `genere` varchar(10) DEFAULT NULL,
+  `quantity` varchar(45) DEFAULT NULL,
+  `price` varchar(4) default null,
+	PRIMARY KEY (`id`)
+    
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `review`;
+
+CREATE TABLE `review` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `book_id` int(11) DEFAULT NULL,
+  `comment` varchar(256) DEFAULT NULL,
+  `stars` varchar(1) default null,
+	PRIMARY KEY (`id`),
+     KEY `FK_BOOK_ID_idx` (`book_id`),
+	 constraint `FK_BOOK` foreign key(`book_id`) 
+    references `book` (`id`)
+    ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+SET FOREIGN_KEY_CHECKS = 1;
+
+--
+-- Dumping data for table `users`
+--
+-- NOTE: The passwords are encrypted using BCrypt
+--
+-- A generation tool is avail at: http://generate-bcrypt-password
+--
+-- Default passwords here are: hello123
+--
+
+INSERT INTO `user` 
+VALUES 
+('1','abhi','ram','ADMIN','abhi@gmail.com','$2a$12$Lx8GllslC5z.5Dcf/4FW9OFWEUqK3SaiwMOVGig7tU4sMp/VLuzvG'),
+('2','jacob','jack','CUSTOMER','jack@gmail.com','$2a$12$Lx8GllslC5z.5Dcf/4FW9OFWEUqK3SaiwMOVGig7tU4sMp/VLuzvG'),
+('3','larry','scall','CUSTOMER','larry@gmail.com','$2a$12$Lx8GllslC5z.5Dcf/4FW9OFWEUqK3SaiwMOVGig7tU4sMp/VLuzvG');
+
+
+
+
+
+
+SONAR_TOKEN
+3f92ac00ed1df8278a91ac68a4bb61153e148b11
