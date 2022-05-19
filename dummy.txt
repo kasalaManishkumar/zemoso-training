@@ -66,5 +66,5 @@ VALUES
 
 
 
-SONAR_TOKEN
-3f92ac00ed1df8278a91ac68a4bb61153e148b11
+SONAR_TOKEN=3f92ac00ed1df8278a91ac68a4bb61153e148b11
+mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=kasalaManishkumar_zemoso-int
